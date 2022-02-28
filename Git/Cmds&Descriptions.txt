@@ -1,0 +1,96 @@
+"git status", checks if current directory is repository and up running
+
+"git config --global user.name "SJ"", changes the name which gets reflected when commint is done. similarly one can use user.email for defining email
+
+snapshot(commit) is like checkpoints/restore to a version
+
+files staged/put in staging area gets committed in next commit
+
+.git is hidden folder in git directory which contains all the relevant files related to project
+
+"git init", creates the current working directory a git repo
+
+"git add --a", adds all files in current dir to staging
+
+"git commit -m "intial"", commits staged file with message initial
+
+"git log", displays all commits
+
+"git add 1.txt", to specify specific file for commit
+
+"rm -rf .git", removes .git folder
+
+"git clone https://github.com/tensorflow/tensorflow.git", clones the given git repo
+
+when git add --a is used for first time, files move to tracked and unmodified when one make changes files move to modified
+
+create .gitignore file and add the name of files in it which we we want to forever exclude from git tracking, one can use wildcards too for adding filename, to ensure only specific files/folders are ignore give complete relative path, for instance to ignore home dir folder add "/folder/", to ignore folder insider folder add "folder/folderIgn/"
+
+git by default ignores empty folder
+
+"git diff", this compares files in working directory to staging area
+
+"git diff --staged", this shows difference between staging and commit
+
+"git commit -a -m "direct commit"", this skips the staging area and directly commits tracked file
+
+"git rm a.txt", removes a.txt and stages the changes which is not the case when renamed by non git way
+
+"git rm --cached a.txt", this untracks a.txt, generally used when changes are made in gitignore and related files still get reflected in git
+
+"git log -p", log along with changes
+
+"git log --stat", shows log stats in brief
+
+"git log --pretty=oneline", shows commits in a single line
+
+"git log--since=2.days", log for past two days
+
+"git commit --amend", this enables one to make changes in commit like author, email, msg etc.
+
+"git restore --staged a.txt", unstages the file
+
+"git checkout -- a.txt", unmodifies any changes made in a.txt to last commit
+
+"git checkout -f", this will edit all the modified files if any to last commited stage
+
+"git remote add origin https://github.com/shivam1040/Test.git", adds a remote repo with name origin
+
+"git remote", shows list of added remote repos
+
+to add local repos to github go through the following steps:
+
+"1.  ssh-keygen -t ed25519 -C "your_email@example.com", use your email id to start creating ssh key, in the next dialogs add filename and passphrase
+2. eval "$(ssh-agent -s)", this starts ssh agent
+3. ssh-add "keyFilenameCreatedIn1", this add key to file created in 1
+4. go to settings of your github and create a new ssh key
+5.clip < keyFilenameCreatedIn1.pub, this will copy the ssh public key to clipboard
+6. add above key to key section of ssh key"
+
+"git push -u origin master", pushes current repo to master branch of origin remote repo
+
+"git config --global alias.st 'status'", this changes alias for 'git status' as 'git st'
+
+branching is to create a parallel repo connected to master branch so that new features can be well tested before adding to master branch
+
+"git checkout -b develop", cretes a sub branch inside a master branch named develop
+
+"git checkout master", changes working directory to master branch and all its file/folders
+
+"git branch", shows all branches in a repo
+
+"git merge a", merges sub branch a with master branch
+
+suppose there are two branches one sub and one master then changes made in master for a code would get committed w/o any issue but when same code is changed in sub branch and then it's merged then merge conflict happens so we are left to select which changes git should consider
+
+"git branch --merged", shows merged branches
+
+"git branch -d dev", deletes the branch dev, gives error if dev isn't merged with main
+
+"git branch -D dev", deletes without merging
+
+to push a sub branch check out that branch and push it from there
+
+"git push origin b", pushes branch sub branch b to remote named origin
+
+"git push -d origin b", delete branch b on remote origin  
